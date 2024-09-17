@@ -1,5 +1,5 @@
 /*
- * stm32f429xx_gpio_driver.h
+ * gpio.h
  *
  * Created on: Sep 16, 2024
  * Author: Mohamed Saeed
@@ -137,6 +137,21 @@ typedef struct
 #define GPIO_PIN_PD         2   /*!< Pull-down */
 
 
+/*
+ *  returns port code for given GPIOx base address
+ */
+/*
+ * This macro returns a code( between 0 to 7) for a given GPIO base address(x)
+ */
+#define GPIO_BASEADDR_TO_CODE(x)      ( (x == GPIOA)?0:\
+										(x == GPIOB)?1:\
+										(x == GPIOC)?2:\
+										(x == GPIOD)?3:\
+								        (x == GPIOE)?4:\
+								        (x == GPIOF)?5:\
+								        (x == GPIOG)?6:\
+								        (x == GPIOH)?7: \
+								        (x == GPIOI)?8:0)
 
 
 
@@ -172,6 +187,12 @@ void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 void GPIO_TogglePort(GPIO_RegDef_t *pGPIOx);
 
 
+/*
+ * IRQ Configuration and ISR handling
+ */
+void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
+void GPIO_IRQHandling(uint8_t PinNumber);
 
 /************************************************************************************
  *                           End of Header File

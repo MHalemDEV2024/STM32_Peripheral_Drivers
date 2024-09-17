@@ -27,6 +27,60 @@
 #define FLAG_RESET              RESET
 #define FLAG_SET                SET
 
+
+/******************************************************************************/ 
+/*                  ARM Cortex Mx Processor-Specific Details                  */
+/*         Definitions for NVIC (Nested Vector Interrupt Controller)          */
+/*                 register addresses and priority settings.                  */
+/*           (cortex_M4 Peripherla, Table 4-2 NVIC register summary)          */ 
+/******************************************************************************/ 
+
+/*
+ * ARM Cortex Mx Processor NVIC ISERx (Interrupt Set-Enable Registers) Addresses
+ * 
+ * The ISER registers enable interrupts for the corresponding interrupt numbers.
+ * Each bit in these registers corresponds to a particular interrupt line.
+ */
+
+#define NVIC_ISER0          ( (__vo uint32_t*)0xE000E100 ) /*!< Base address for ISER0 register */
+#define NVIC_ISER1          ( (__vo uint32_t*)0xE000E104 ) /*!< Base address for ISER1 register */
+#define NVIC_ISER2          ( (__vo uint32_t*)0xE000E108 ) /*!< Base address for ISER2 register */
+#define NVIC_ISER3          ( (__vo uint32_t*)0xE000E10C ) /*!< Base address for ISER3 register */
+
+
+/*
+ * ARM Cortex Mx Processor NVIC ICERx (Interrupt Clear-Enable Registers) Addresses
+ * 
+ * The ICER registers clear interrupts for the corresponding interrupt numbers.
+ * Each bit in these registers corresponds to a particular interrupt line.
+ */
+
+#define NVIC_ICER0          ((__vo uint32_t*)0xE000E180) /*!< Base address for ICER0 register */
+#define NVIC_ICER1          ((__vo uint32_t*)0xE000E184) /*!< Base address for ICER1 register */
+#define NVIC_ICER2          ((__vo uint32_t*)0xE000E188) /*!< Base address for ICER2 register */
+#define NVIC_ICER3          ((__vo uint32_t*)0xE000E18C) /*!< Base address for ICER3 register */
+
+
+/*
+ * ARM Cortex Mx Processor NVIC PR (Priority Register) Base Address
+ * 
+ * The NVIC PR registers are used to set the priority of each interrupt.
+ * Each interrupt has its own priority value, which determines its preemption level.
+ */
+
+#define NVIC_PR_BASE_ADDR   ((__vo uint32_t*)0xE000E400) /*!< Base address for NVIC priority registers */
+
+
+/*
+ * ARM Cortex Mx Processor Number of Priority Bits Implemented
+ * 
+ * The Cortex Mx processors typically implement a subset of the available priority levels.
+ * This macro defines the number of priority bits implemented by the processor.
+ */
+
+#define NO_PR_BITS_IMPLEMENTED  4  /*!< Number of priority bits implemented in NVIC */
+
+
 /******************************************************************************/ 
 /*                  Base Addresses for Memory and Peripheral Buses            */ 
 /******************************************************************************/ 
@@ -85,11 +139,31 @@
 
 
 /******************************************************************************/ 
+/*               APB2 Peripheral Base Addresses (STM32F429)                   */ 
+/*               Derived from STM32F429 Memory Map (RM0090, Table 1)           */ 
+/******************************************************************************/ 
+
+
+/**
+ * @brief EXTI (External Interrupt/Event Controller) Base Address
+ *        The EXTI handles external interrupt/event requests from peripherals and external pins.
+ */
+#define EXTI_BASEADDR           (APB2PERIPH_BASEADDR + 0x3C00)   /*!< Base address for EXTI */
+
+/**
+ * @brief SYSCFG (System Configuration Controller) Base Address
+ *        The SYSCFG provides system configuration functions, including external interrupt configuration.
+ */
+#define SYSCFG_BASEADDR         (APB2PERIPH_BASEADDR + 0x3800)   /*!< Base address for SYSCFG */
+
+
+/******************************************************************************/ 
 /*               Include header files for peripheral drivers                  */ 
 /******************************************************************************/ 
 
 #include "gpio.h"
 #include "rcc.h"
+#include "exti.h"
 
 
 /************************************************************************************

@@ -2,7 +2,7 @@
  * 002_led_button.c
  *
  *  Created on: Sep 17, 2024
- *  Author: ADMIN
+ *  Author: Mohamed Saeed
  * 
  *  Description: This program toggles two LEDs on GPIOG pins 13 and 14 based on the state of a button connected to GPIOA pin 2. 
  *  When the button is pressed, the green LED (GPIOG_PIN_NO_13) toggles every second, and the red LED (GPIOG_PIN_NO_14) is turned off.

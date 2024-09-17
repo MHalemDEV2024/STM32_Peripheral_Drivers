@@ -2,7 +2,7 @@
  * 004_led_button.c
  *
  *  Created on: Sep 17, 2024
- *  Author: ADMIN
+ *  Author: Mohamed Saeed
  * 
  *  Description: This program controls a series of LEDs connected to GPIOG pins 1 through 8. 
  *  It shifts the LEDs left or right based on the state of a button connected to GPIOA pin 2. 

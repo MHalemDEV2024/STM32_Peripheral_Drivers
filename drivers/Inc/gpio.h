@@ -159,6 +159,7 @@ typedef struct
  *                           Function Prototypes
  ************************************************************************************/
 
+
 /*
  * Peripheral Clock setup
  */
@@ -168,7 +169,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi);
  * Init and De-init
  */
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
-void GPIO_PinInit(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t PinMode, uint8_t PinSpeed, uint8_t PinOPType, uint8_t PinPuPdControl);
+void GPIO_PinInit(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t PinMode, uint8_t PinSpeed, uint8_t PinOPType, uint8_t PinPuPdControl,uint8_t PinAltFunMode);
 void GPIO_PinInitV(GPIO_RegDef_t *pGPIOx, uint8_t numPins, ...);
 void GPIO_PortInit(GPIO_RegDef_t *pGPIOx);
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);

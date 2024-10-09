@@ -100,6 +100,46 @@ typedef struct
 #define GPIOH_CLK_EN()    (RCC->AHB1ENR |= (1 << 7))   /*!< Enable clock for GPIOH */
 #define GPIOI_CLK_EN()    (RCC->AHB1ENR |= (1 << 8))   /*!< Enable clock for GPIOI */
 
+
+
+/**
+ * @brief Clock Enable Macros for USART/UART on APB2 Bus
+ *        Enable clock for USART peripherals on APB2 bus.
+ */
+#define USART1_PCLK_EN()        (RCC->APB2ENR |= (1 << 4))   /*!< Enable clock for USART1 */
+#define USART6_PCLK_EN()        (RCC->APB2ENR |= (1 << 5))   /*!< Enable clock for USART6 */
+
+/**
+ * @brief Clock Enable Macros for USART/UART on APB1 Bus
+ *        Enable clock for USART/UART peripherals on APB1 bus.
+ */
+#define USART2_PCLK_EN()        (RCC->APB1ENR |= (1 << 17))  /*!< Enable clock for USART2 */
+#define USART3_PCLK_EN()        (RCC->APB1ENR |= (1 << 18))  /*!< Enable clock for USART3 */
+#define UART4_PCLK_EN()         (RCC->APB1ENR |= (1 << 19))  /*!< Enable clock for UART4  */
+#define UART5_PCLK_EN()         (RCC->APB1ENR |= (1 << 20))  /*!< Enable clock for UART5  */
+#define UART7_PCLK_EN()         (RCC->APB1ENR |= (1 << 30))  /*!< Enable clock for UART7  */
+#define UART8_PCLK_EN()         (RCC->APB1ENR |= (1 << 31))  /*!< Enable clock for UART8  */
+
+
+
+/**
+ * @brief Clock Disable Macros for USART/UART on APB2 Bus
+ *        Enable clock for USART peripherals on APB2 bus.
+ */
+#define USART1_PCLK_DI()        (RCC->APB2ENR &= ~(1 << 4))   /*!< Disable clock for USART1 */
+#define USART6_PCLK_DI()        (RCC->APB2ENR &= ~(1 << 5))   /*!< Disable clock for USART6 */
+
+/**
+ * @brief Clock Disable Macros for USART/UART on APB1 Bus
+ *        Enable clock for USART/UART peripherals on APB1 bus.
+ */
+#define USART2_PCLK_DI()        (RCC->APB1ENR &= ~(1 << 17))  /*!< Disable clock for USART2 */
+#define USART3_PCLK_DI()        (RCC->APB1ENR &= ~(1 << 18))  /*!< Disable clock for USART3 */
+#define UART4_PCLK_DI()         (RCC->APB1ENR &= ~(1 << 19))  /*!< Disable clock for UART4  */
+#define UART5_PCLK_DI()         (RCC->APB1ENR &= ~(1 << 20))  /*!< Disable clock for UART5  */
+#define UART7_PCLK_DI()         (RCC->APB1ENR &= ~(1 << 30))  /*!< Disable clock for UART7  */
+#define UART8_PCLK_DI()         (RCC->APB1ENR &= ~(1 << 31))  /*!< Disable clock for UART8  */
+
 /*
  * @brief Clock Disable Macros for GPIOx Peripherals 
  * 
@@ -134,6 +174,17 @@ typedef struct
 #define GPIOG_RESET()         do { (RCC->AHB1RSTR |= (1 << 6)); (RCC->AHB1RSTR &= ~(1 << 6)); } while(0)  /*!< Reset GPIOG */
 #define GPIOH_RESET()         do { (RCC->AHB1RSTR |= (1 << 7)); (RCC->AHB1RSTR &= ~(1 << 7)); } while(0)  /*!< Reset GPIOH */
 #define GPIOI_RESET()         do { (RCC->AHB1RSTR |= (1 << 8)); (RCC->AHB1RSTR &= ~(1 << 8)); } while(0)  /*!< Reset GPIOI */
+
+
+
+//This returns the APB1 clock value
+uint32_t RCC_GetPCLK1Value(void);
+
+//This returns the APB2 clock value
+uint32_t RCC_GetPCLK2Value(void);
+
+
+uint32_t  RCC_GetPLLOutputClock(void);
 
 
 /************************************************************************************

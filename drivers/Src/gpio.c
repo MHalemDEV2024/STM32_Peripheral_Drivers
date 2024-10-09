@@ -160,7 +160,7 @@ void GPIO_PortInit(GPIO_RegDef_t *pGPIOx) {
     }
 }
 // Function to initialize a single GPIO pin
-void GPIO_PinInit(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t PinMode, uint8_t PinSpeed, uint8_t PinOPType, uint8_t PinPuPdControl) {
+void GPIO_PinInit(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t PinMode, uint8_t PinSpeed, uint8_t PinOPType, uint8_t PinPuPdControl,uint8_t PinAltFunMode) {
     GPIO_Handle_t GpioPin;
     memset(&GpioPin,0,sizeof(GpioPin));
 
@@ -170,6 +170,7 @@ void GPIO_PinInit(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t PinMode, uin
     GpioPin.GPIO_PinConfig.GPIO_PinSpeed = PinSpeed;
     GpioPin.GPIO_PinConfig.GPIO_PinOPType = PinOPType;
     GpioPin.GPIO_PinConfig.GPIO_PinPuPdControl = PinPuPdControl;
+		GpioPin.GPIO_PinConfig.GPIO_PinAltFunMode = PinAltFunMode;
 
     GPIO_Init(&GpioPin);
 }

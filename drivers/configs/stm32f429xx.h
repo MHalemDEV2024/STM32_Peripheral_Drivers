@@ -109,6 +109,7 @@
 #define AHB2PERIPH_BASEADDR     0x50000000UL    /*!< Base address of AHB2 (Advanced High-Performance Bus 2) */
 #define AHB3PERIPH_BASEADDR     0xA0000000UL    /*!< Base address of AHB3 (Advanced High-Performance Bus 3) */
 
+
 /******************************************************************************/ 
 /*               AHB1 Peripheral Base Addresses (STM32F429)                   */ 
 /*               Derived from STM32F429 Memory Map (RM0090, Table 1)           */ 
@@ -157,6 +158,34 @@
 #define SYSCFG_BASEADDR         (APB2PERIPH_BASEADDR + 0x3800)   /*!< Base address for SYSCFG */
 
 
+
+/**
+ * @brief USART and UART Base Addresses on APB2 Bus
+ *        These peripherals provide asynchronous and synchronous serial communication.
+ */
+#define USART1_BASEADDR         (APB2PERIPH_BASEADDR + 0x1000)   /*!< Base address for USART1 */
+#define USART6_BASEADDR         (APB2PERIPH_BASEADDR + 0x1400)   /*!< Base address for USART6 */
+
+
+
+/******************************************************************************/ 
+/*            APB1 Peripheral Base Addresses (STM32F429)                      */ 
+/*        Based on STM32F429 Memory Map (RM0090, Table 1)                      */ 
+/******************************************************************************/ 
+
+/**
+ * @brief USART and UART Base Addresses on APB1 Bus
+ *        These peripherals provide asynchronous and synchronous serial communication.
+ */
+#define USART2_BASEADDR         (APB1PERIPH_BASEADDR + 0x4400)   /*!< Base address for USART2 */
+#define USART3_BASEADDR         (APB1PERIPH_BASEADDR + 0x4800)   /*!< Base address for USART3 */
+#define UART4_BASEADDR          (APB1PERIPH_BASEADDR + 0x4C00)   /*!< Base address for UART4  */
+#define UART5_BASEADDR          (APB1PERIPH_BASEADDR + 0x5000)   /*!< Base address for UART5  */
+#define UART7_BASEADDR          (APB1PERIPH_BASEADDR + 0x7800)   /*!< Base address for UART7  */
+#define UART8_BASEADDR          (APB1PERIPH_BASEADDR + 0x7C00)   /*!< Base address for UART8  */
+
+
+
 /******************************************************************************/ 
 /*               Include header files for peripheral drivers                  */ 
 /******************************************************************************/ 
@@ -164,6 +193,7 @@
 #include "gpio.h"
 #include "rcc.h"
 #include "exti.h"
+#include "usart.h"
 
 
 /************************************************************************************
